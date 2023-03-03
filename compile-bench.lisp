@@ -46,11 +46,13 @@
   (list* (cons 'compile
                (benchmark-compilation-runtime
                 (forms benchmark) *compilation-iterations*))
-         (loop for (fname . args) in (calls benchmark)
+         (loop for (niters fname . args) in (calls benchmark)
                for f = (fdefinition fname)
                ;;do (write (list* fname args) :length 2 :level 2)
-               ;;   (terpri)
-               collect (cons fname (runtime (apply f args))))))
+               ;;   (terpri) (finish-output)
+               collect (cons fname (runtime
+                                    (loop repeat niters
+                                          do (apply f args)))))))
 
 (defmacro defbench ((name &rest calls) &body definitions)
   `(defparameter ,name

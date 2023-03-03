@@ -8,15 +8,15 @@
 (in-package #:compile-bench.arrays)
 
 (b:defbench (arrays
-             (bench-1d-arrays)
-             (bench-2d-arrays)
-             (bench-3d-arrays)
-             (bench-bitvectors)
-             (bench-strings)
-             (bench-strings/adjustable)
+             (1 bench-1d-arrays)
+             (1 bench-2d-arrays)
+             (1 bench-3d-arrays)
+             (1 bench-bitvectors)
+             (1 bench-strings)
+             (1 bench-strings/adjustable)
              #-clisp
-             (bench-string-concat)
-             (bench-search-sequence))
+             (1 bench-string-concat)
+             (1 bench-search-sequence))
 
   (defun bench-1d-arrays (&optional (size 100000) (runs 10))
     (declare (fixnum size))

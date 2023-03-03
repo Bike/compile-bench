@@ -8,7 +8,7 @@
 (in-package #:compile-bench.crc40)
 
 (b:defbench (crc40
-             (calculate-crc40 10))
+             (1 calculate-crc40 10))
 
   (defun crc-division-step (bit rmdr poly msb-mask)
     (declare (type (signed-byte 56) rmdr poly msb-mask)

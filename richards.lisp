@@ -8,7 +8,7 @@
 (in-package #:compile-bench.richards)
 
 (b:defbench (richards
-             (richards))
+             (1 richards))
 
   (eval-when (:compile-toplevel :load-toplevel :execute)
     (defconstant deviceA 5)
